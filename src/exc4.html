@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React 第一个例子</title>
+    <!--<script type="text/javascript" src="react.js"></script>-->
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example">
+</div>
+<script type="text/babel">
+    var HelloMessage = React.createClass({
+            render: function () {
+                return <h1>Hello {this.props.name}</h1>;
+            }
+        }
+    );
+    var Timer = React.createClass({
+        getInitialState: function () {
+            return {secondsElapsed: 0};
+        },
+        tik: function () {
+            this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+        },
+        /*组建完成时装载*/
+        componentDidMount:function () {
+            this.interval=setInterval(this.tik,1000);
+
+        },
+        componentWillUnmount:function () {
+            clearInterval(this.interval);
+        },
+        render:function () {
+            return(<div>Seconds Elapse:{this.state.secondsElapsed}</div>);
+        }
+    });
+    /*ReactDOM.render(<HelloMessage name="React"/>, document.getElementById('example'));*/
+    ReactDOM.render(<Timer/>, document.getElementById('example'));
+
+</script>
+
+</body>
+</html>

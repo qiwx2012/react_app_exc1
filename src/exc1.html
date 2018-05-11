@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+    <script src="App.js"></script>
+</head>
+<body>
+<div id="1">
+    <script type="text/babel">
+        //css样式
+        var mystyle = {
+            fontSize: 100,
+            color: '#FF0000'
+        };
+        //数组
+        var arr = [
+            <h1>来自数组1</h1>,
+            <h1>来自数组2</h1>
+        ];
+        ReactDOM.render(
+                <div><h1 style={mystyle}>你好啊</h1>
+                    <p>这是一个很不错的 JavaScript 库!</p>
+                    <h2>{arr}</h2>
+                </div>
+            , document.getElementById('1'));
+
+    </script>
+
+</div>
+
+</body>
+</html>

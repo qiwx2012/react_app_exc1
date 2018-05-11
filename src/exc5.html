@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写信息</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+<div id="example">
+</div>
+<script type="text/babel">
+
+    var ShowEditor = React.createClass({
+        getInitialState: function () {
+            //系统方法 初始化方法
+            return {value: '你可以在这里输入文字'};
+        },
+        handleChange: function () {
+            this.setState({value: ReactDOM.findDOMNode(this.refs.textarea).value});
+        },
+        render: function () {
+            //此方法相当于AnroidView中的onDraw()
+            return (<div>
+                <h1>输入</h1>
+                <textarea style={{width: 300, height: 150, outline: 'none'}}
+                          onChange={this.handleChange}
+                          ref="textarea"
+                          defaultValue={this.state.value}
+                />
+                <h3>输出</h3>
+                <div>
+                    {this.state.value}
+                </div>
+
+            </div>);
+        }
+    });
+    /*ReactDOM.render(<HelloMessage name="React"/>, document.getElementById('example'));*/
+    ReactDOM.render(<ShowEditor/>, document.getElementById('example'));
+
+</script>
+
+</body>
+</html>
